@@ -1,0 +1,15 @@
+[user]
+	name = Akshar Dave
+	email = akshar314@gmail.com
+[color]
+	ui = true
+[merge]
+	tool = opendiff
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	s = status -s
+	lg = log --oneline --decorate --all --graph
+
