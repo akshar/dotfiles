@@ -3,6 +3,7 @@
 
 # export PATH=${JAVA_HOME}/bin:$PATH
 
+export ROAMER_EDITOR=emacs
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 # export JAVA_HOME = '/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home'
