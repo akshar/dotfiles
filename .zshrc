@@ -111,3 +111,4 @@ if [ -f '/Users/akshar/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '
 if [ -f '/Users/akshar/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/akshar/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval $(thefuck --alias)
+alias config='/usr/bin/git --git-dir=/Users/akshar/.cfg/ --work-tree=/Users/akshar'

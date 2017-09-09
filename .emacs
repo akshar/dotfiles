@@ -257,6 +257,10 @@
 (add-hook 'js-mode-hook 'smartparens-strict-mode)
 (add-hook 'js-mode-hook 'show-paren-mode)
 (add-hook 'js-mode-hook 'sp-use-paredit-bindings)
+
+;;robe
+(add-hook 'ruby-mode-hook 'robe-mode)
+
 ;; modules/personal/empty.el.el
 ;; start of epilogue
 
