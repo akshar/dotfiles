@@ -185,7 +185,13 @@
 (nel:require-packages 'monokai-theme)
 
 (nel:run-after-initializing
-  (load-theme 'material t))   ;;'monokai t
+ (load-theme 'material t))   ;;'monokai t
+
+; (nel:require-packages 'emacs-powerline)
+; (setq powerline-arrow-shape 'arrow)   ;; the default
+; (setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
+; (setq powerline-arrow-shape 'arrow14) ;; best for small fonts
+
 ;; recentf.el
 (defun grizzl-recentf ()
   (interactive)
@@ -246,6 +252,8 @@
   (global-set-key (kbd "s-D") 'duplicate-line)
   (global-set-key (kbd "s-Z") 'undo-tree-redo)
   (global-set-key (kbd "M-;") 'comment-or-uncomment-line-or-region)
+  (global-set-key (kbd "C-<down-mouse-1>") 'mc/add-cursor-on-click)
+  (global-set-key (kbd "C-S-<down>") 'mc/edit-lines)
   (global-set-key (kbd "s-d") 'expand-to-word-and-multiple-cursors))
 ;; web.el
 (nel:require-packages 'web-mode 'scss-mode 'coffee-mode 'jshint-mode)
