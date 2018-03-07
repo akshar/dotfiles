@@ -1,7 +1,12 @@
+
+# pyenv init
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # export PATH=${JAVA_HOME}/bin:$PATH
+
+export PATH=~/anaconda3/bin:$PATH
 
 export ROAMER_EDITOR=emacs
 
@@ -18,6 +23,8 @@ export ZSH=/Users/akshar/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 eval "$(rbenv init -)"
 # ZSH_THEME="robbyrussell"
+
+
 
 ZSH_THEME="materialshell-oceanic"
 
@@ -111,4 +118,8 @@ if [ -f '/Users/akshar/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '
 if [ -f '/Users/akshar/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/akshar/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval $(thefuck --alias)
+eval "$(pyenv init -)"
 alias config='/usr/bin/git --git-dir=/Users/akshar/.cfg/ --work-tree=/Users/akshar'
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
