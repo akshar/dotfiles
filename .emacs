@@ -9,8 +9,8 @@
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
-    (url-retrieve-synchronously
-      "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
@@ -25,7 +25,7 @@
 
 (defun nel:require-packages (&rest packages)
   (setq nel:my-packages
-    (append nel:my-packages packages)))
+	(append nel:my-packages packages)))
 
 (defun nel:customize-package (name &rest details)
   (setq el-get-sources
@@ -33,8 +33,8 @@
 
 (defmacro nel:run-after-initializing (&rest body)
   `(add-hook 'nel-initialized-hook
-     (lambda ()
-       ,@body)))
+	     (lambda ()
+	       ,@body)))
 
 (add-to-list 'exec-path "~/bin")
 
@@ -43,8 +43,8 @@
 (nel:require-packages 'anzu 'browse-kill-ring 'company-mode 'projectile 'undo-tree 'smex 'multiple-cursors 'yasnippets 'rainbow-delimiters 'expand-region 'neotree)
 
 (defun back-to-indentation-or-beginning () (interactive)
-  (if (= (point) (progn (back-to-indentation) (point)))
-      (beginning-of-line)))
+       (if (= (point) (progn (back-to-indentation) (point)))
+	   (beginning-of-line)))
 
 (defun indent-buffer ()
   "Indent the currently visited buffer."
@@ -154,22 +154,22 @@
      (cider-load-buffer)))
 
 (nel:run-after-initializing
-  (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
-  (add-hook 'clojure-mode-hook 'clj-refactor-mode)
-  (add-hook 'clojure-mode-hook 'show-paren-mode)
-  (add-hook 'clojure-mode-hook 'sp-use-paredit-bindings)
-  (add-hook 'clojure-mode-hook (lambda () (cljr-add-keybindings-with-prefix "C-c C-m")))
-  (add-hook 'clojure-mode-hook 'custom-cider-shortcuts)
-  (add-hook 'clojure-mode-hook 'custom-turn-on-fci-mode)
+ (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+ (add-hook 'clojure-mode-hook 'clj-refactor-mode)
+ (add-hook 'clojure-mode-hook 'show-paren-mode)
+ (add-hook 'clojure-mode-hook 'sp-use-paredit-bindings)
+ (add-hook 'clojure-mode-hook (lambda () (cljr-add-keybindings-with-prefix "C-c C-m")))
+ (add-hook 'clojure-mode-hook 'custom-cider-shortcuts)
+ (add-hook 'clojure-mode-hook 'custom-turn-on-fci-mode)
 
-  (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
-  (add-hook 'cider-repl-mode-hook 'show-paren-mode)
-  (add-hook 'cider-repl-mode-hook 'sp-use-paredit-bindings)
+ (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
+ (add-hook 'cider-repl-mode-hook 'show-paren-mode)
+ (add-hook 'cider-repl-mode-hook 'sp-use-paredit-bindings)
 
-  (clojure:save-before-running cider-load-current-buffer)
-  (clojure:load-before-running cider-test-run-tests)
-  (clojure:load-before-running cider-test-rerun-tests)
-  (clojure:load-before-running cider-test-run-test))
+ (clojure:save-before-running cider-load-current-buffer)
+ (clojure:load-before-running cider-test-run-tests)
+ (clojure:load-before-running cider-test-rerun-tests)
+ (clojure:load-before-running cider-test-run-test))
 ;; git.el
 (nel:require-packages 'magit)
 
@@ -185,12 +185,19 @@
 (nel:require-packages 'monokai-theme)
 
 (nel:run-after-initializing
- (load-theme 'material t))   ;;'monokai t
+ (load-theme 'material t)
+ (set-face-attribute 'mode-line nil
+		     :foreground "Black"
+		     :background "DarkOrange"
+		     :box nil)
+ (set-face-attribute 'isearch nil
+		     :foreground "#000000"
+		     :background "#ffff00"))   ;;'monokai t
 
-; (nel:require-packages 'emacs-powerline)
-; (setq powerline-arrow-shape 'arrow)   ;; the default
-; (setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
-; (setq powerline-arrow-shape 'arrow14) ;; best for small fonts
+(nel:require-packages 'emacs-powerline)
+;; (setq powerline-arrow-shape 'arrow)   ;; the default
+(setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
+(setq powerline-arrow-shape 'arrow14) ;; best for small fonts
 
 ;; recentf.el
 (defun grizzl-recentf ()
@@ -204,16 +211,16 @@
 (setq recentf-auto-cleanup 'never)
 
 (nel:run-after-initializing
-  (recentf-mode +1)
-  (run-with-timer 0 60 'recentf-save-list)
-  (global-set-key (kbd "C-c f") 'grizzl-recentf))
+ (recentf-mode +1)
+ (run-with-timer 0 60 'recentf-save-list)
+ (global-set-key (kbd "C-c f") 'grizzl-recentf))
 ;; ruby.el
 (nel:require-packages 'rspec-mode 'ruby-tools 'yaml-mode 'ruby-electric)
 ;; save-autosave-in-temp-folder.el
 (setq backup-directory-alist
-  `((".*" . ,temporary-file-directory)))
+      `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-  `((".*" ,temporary-file-directory t)))
+      `((".*" ,temporary-file-directory t)))
 ;; sublime.el
 (nel:require-packages 'expand-region)
 
@@ -226,7 +233,7 @@
 (defun comment-or-uncomment-line-or-region ()
   (interactive)
   (if (region-active-p)
-    (comment-or-uncomment-region (region-beginning) (region-end))
+      (comment-or-uncomment-region (region-beginning) (region-end))
     (move-back-horizontal-after
      (comment-or-uncomment-region (line-beginning-position) (line-end-position))
      (forward-line 1))))
@@ -246,15 +253,15 @@
   (if (region-active-p) (mc/mark-next-like-this args) (er/mark-word)))
 
 (nel:run-after-initializing
-  (require 'expand-region)
-  (global-set-key (kbd "M-s-<right>") 'switch-to-next-buffer)
-  (global-set-key (kbd "M-s-<left>") 'switch-to-prev-buffer)
-  (global-set-key (kbd "s-D") 'duplicate-line)
-  (global-set-key (kbd "s-Z") 'undo-tree-redo)
-  (global-set-key (kbd "M-;") 'comment-or-uncomment-line-or-region)
-  (global-set-key (kbd "C-<down-mouse-1>") 'mc/add-cursor-on-click)
-  (global-set-key (kbd "C-S-<down>") 'mc/edit-lines)
-  (global-set-key (kbd "s-d") 'expand-to-word-and-multiple-cursors))
+ (require 'expand-region)
+ (global-set-key (kbd "M-s-<right>") 'switch-to-next-buffer)
+ (global-set-key (kbd "M-s-<left>") 'switch-to-prev-buffer)
+ (global-set-key (kbd "s-D") 'duplicate-line)
+ (global-set-key (kbd "s-Z") 'undo-tree-redo)
+ (global-set-key (kbd "M-;") 'comment-or-uncomment-line-or-region)
+ (global-set-key (kbd "C-<down-mouse-1>") 'mc/add-cursor-on-click)
+ (global-set-key (kbd "C-S-<down>") 'mc/edit-lines)
+ (global-set-key (kbd "s-d") 'expand-to-word-and-multiple-cursors))
 ;; web.el
 (nel:require-packages 'web-mode 'scss-mode 'coffee-mode 'jshint-mode)
 
@@ -271,11 +278,11 @@
 
 
 ;;GO
-(setenv "GOPATH" "/Users/akshar/go")
+;; (setenv "GOPATH" "/Users/akshar/go")
 
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
+;; (when (memq window-system '(mac ns))
+;;   (exec-path-from-shell-initialize)
+;;   (exec-path-from-shell-copy-env "GOPATH"))
 
 (defun my-go-mode-hook ()
   (add-hook 'before-save-hook 'gofmt-before-save) ; gofmt before every save
