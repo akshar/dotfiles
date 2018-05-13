@@ -80,6 +80,15 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 
+;;Beacon
+(beacon-mode 1)
+(setq beacon-color "red")
+(setq beacon-blink-delay 0.4)
+(setq beacon-blink-duration 0.4)
+(setq beacon-blink-when-point-moves 7)
+(setq beacon-push-mark 5)
+(setq beacon-size 25)
+
 (nel:run-after-initializing
  (projectile-global-mode t)
  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
@@ -190,9 +199,9 @@
 		     :foreground "Black"
 		     :background "DarkOrange"
 		     :box nil)
- (set-face-attribute 'isearch nil
-		     :foreground "#000000"
-		     :background "#ffff00"))   ;;'monokai t
+(set-face-attribute 'isearch nil
+                    :foreground "#000000"
+                    :background "#ffff00"))   ;;'monokai t
 
 (nel:require-packages 'emacs-powerline)
 ;; (setq powerline-arrow-shape 'arrow)   ;; the default
