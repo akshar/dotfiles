@@ -1,0 +1,39 @@
+{
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 1,
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "material-icon-theme.folders.theme": "classic",
+  "workbench.colorTheme": "Material Theme",
+  "material-icon-theme.showReloadMessage": false,
+  "files.autoSave": "off",
+  "files.trimTrailingWhitespace": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "[yaml]": {},
+  "yaml.format.enable": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "block",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[reason]": {},
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "eslint.enable": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "python.linting.pylintPath": "/usr/local/bin/pylint",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    ".build/**": true,
+    "out*/**": true,
+    "i18n/**": true,
+    "extensions/**/out/**": true,
+    "*.min.js": true
+  },
+  "workbench.statusBar.visible": true
+}
+
